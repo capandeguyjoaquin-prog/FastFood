@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar producto</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Consultar producto</h1>
+    </div>
+
+    <a href="/productos">Volver</a>
+
+    <ul>
+        <li><a href="/productos/Alta">Dar de alta</a></li>
+        <li><a href="/productos/Baja">Dar de baja</a></li>
+        <li><a href="/productos/Mod">Modificar producto</a></li>
+        <li><a href="/productos/Cons">Consultar producto</a></li>
+        <li><a href="/productos/Most">Mostrar todos</a></li>
+    </ul>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form method="POST" action="/productos/Cons">
+        <p>ID a consultar: <input type="text" name="idProducto"></p>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <% if (producto) { %>
+        <h3>Resultado:</h3>
+        <p>ID: <%= producto.idProducto %></p>
+        <p>Nombre: <%= producto.nombreP %></p>
+        <p>Categoría: <%= producto.categoriaP %></p>
+        <p>Precio: <%= producto.precio_unitarioP %></p>
+    <% } %>
+</body>
+</html>

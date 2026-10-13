@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar clientes</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Mostrar todos los clientes</h1>
+    </div>
+
+    <a href="/cliente">Volver</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (registros && registros.length > 0) { %>
+                <% registros.forEach(cli => { %>
+                    <tr>
+                        <td><%= cli.idCliente %></td>
+                        <td><%= cli.nombreC %></td>
+                        <td><%= cli.apellidoC %></td>
+                        <td><%= cli.telefonoC %></td>
+                        <td><%= cli.direccionC %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5">No hay clientes</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

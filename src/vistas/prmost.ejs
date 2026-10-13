@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar productos</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Mostrar todos los productos</h1>
+    </div>
+
+    <a href="/productos">Volver</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (registros && registros.length > 0) { %>
+                <% registros.forEach(prod => { %>
+                    <tr>
+                        <td><%= prod.idProducto %></td>
+                        <td><%= prod.nombreP %></td>
+                        <td><%= prod.categoriaP %></td>
+                        <td><%= prod.precio_unitarioP %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">No hay productos</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

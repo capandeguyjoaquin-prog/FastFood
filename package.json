@@ -1,0 +1,29 @@
+{
+  "name": "TpFabioFastFood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capandeguyjoaquin-prog/trabajo-fabio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/capandeguyjoaquin-prog/trabajo-fabio/issues"
+  },
+  "homepage": "https://github.com/capandeguyjoaquin-prog/trabajo-fabio#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.2",
+    "nodemon": "^3.1.14"
+  }
+}

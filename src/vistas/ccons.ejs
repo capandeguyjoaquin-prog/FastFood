@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar cliente</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Consultar cliente</h1>
+    </div>
+
+    <a href="/cliente">Volver</a>
+    <ul>
+        <li><a href="/cliente/Alta">Dar de alta</a></li>
+        <li><a href="/cliente/Baja">Dar de baja</a></li>
+        <li><a href="/cliente/Mod">Modificar cliente</a></li>
+        <li><a href="/cliente/Cons">Consultar cliente</a></li>
+        <li><a href="/cliente/Most">Mostrar todos</a></li>
+    </ul>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form method="POST" action="/cliente/Cons">
+        <p>ID a consultar: <input type="text" name="idCliente"></p>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <% if (cliente) { %>
+        <h3>Resultado:</h3>
+        <p>ID: <%= cliente.idCliente %></p>
+        <p>Nombre: <%= cliente.nombreC %></p>
+        <p>Apellido: <%= cliente.apellidoC %></p>
+        <p>Teléfono: <%= cliente.telefonoC %></p>
+        <p>Dirección: <%= cliente.direccionC %></p>
+    <% } %>
+</body>
+</html>
