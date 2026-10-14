@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baja empleado</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Baja de empleado</h1>
+    </div>
+
+    <a href="/empleado">Volver</a>
+    <ul>
+        <li><a href="/empleado/Alta">Dar de alta</a></li>
+        <li><a href="/empleado/Baja">Dar de baja</a></li>
+        <li><a href="/empleado/Mod">Modificar empleado</a></li>
+        <li><a href="/empleado/Cons">Consultar empleado</a></li>
+        <li><a href="/empleado/Most">Mostrar todos</a></li>
+    </ul>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form method="POST" action="/empleado/Baja">
+        <p>ID del empleado a dar de baja: <input type="text" name="idEmpleado"></p>
+        <button type="submit">Eliminar</button>
+    </form>
+</body>
+</html>

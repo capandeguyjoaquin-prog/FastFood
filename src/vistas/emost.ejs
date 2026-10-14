@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar empleados</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Mostrar todos los empleados</h1>
+    </div>
+
+    <a href="/empleado">Volver</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th>Turno</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (registros && registros.length > 0) { %>
+                <% registros.forEach(emp => { %>
+                    <tr>
+                        <td><%= emp.idEmpleado %></td>
+                        <td><%= emp.nombreE %></td>
+                        <td><%= emp.cargoE %></td>
+                        <td><%= emp.turnoE %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">No hay empleados</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
