@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar cliente</title>
+    <title>Consultar cliente</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Modificar cliente</h1>
+        <h1>Consultar cliente</h1>
     </div>
 
     <a href="/cliente">Volver</a>
@@ -20,17 +20,19 @@
         <li><a href="/cliente/Most">Mostrar todos</a></li>
     </ul>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
-
-    <form method="POST" action="/cliente/Mod">
-        <p>ID: <input type="text" name="idCliente"></p>
-        <p>Nombre: <input type="text" name="nombreC"></p>
-        <p>Apellido: <input type="text" name="apellidoC"></p>
-        <p>Teléfono: <input type="text" name="telefonoC"></p>
-        <p>Dirección: <input type="text" name="direccionC"></p>
-        <button type="submit">Actualizar</button>
+    <form action="/cliente/Cons" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+         <input type="submit" name="AGREGAR" >
     </form>
+
+    <% if (cliente) { %>
+        <h3>Resultado:</h3>
+        <p>ID: <%= cliente.idCliente %></p>
+        <p>Nombre: <%= cliente.nombreC %></p>
+        <p>Apellido: <%= cliente.apellidoC %></p>
+        <p>Teléfono: <%= cliente.telefonoC %></p>
+        <p>Dirección: <%= cliente.direccionC %></p>
+    <% } %>
 </body>
 </html>

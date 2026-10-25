@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta empleado</title>
+    <title>Consultar empleado</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Alta de empleado</h1>
+        <h1>Consultar empleado</h1>
     </div>
 
     <a href="/empleado">Volver</a>
-
     <ul>
         <li><a href="/empleado/Alta">Dar de alta</a></li>
         <li><a href="/empleado/Baja">Dar de baja</a></li>
@@ -25,12 +24,19 @@
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form method="POST" action="/empleado/Alta">
-        <p>ID: <input type="text" name="idEmpleado"></p>
-        <p>Nombre: <input type="text" name="nombreE"></p>
-        <p>Cargo: <input type="text" name="cargoE"></p>
-        <p>Turno: <input type="text" name="turnoE"></p>     
-        <button type="submit">Guardar</button>
+    <form action="/empleado/Cons" method="post" >
+        <p>Id
+        <input type="text" name="idhtml" placeholder="id">
+         <input type="submit" name="AGREGAR" >
+         </p>
     </form>
+
+    <% if (empleado) { %>
+        <h3>Resultado:</h3>
+        <p>ID: <%= empleado.idEmpleado %></p>
+        <p>Nombre: <%= empleado.nombreE %></p>
+        <p>Cargo: <%= empleado.cargoE %></p>
+        <p>Turno: <%= empleado.turnoE %></p>
+    <% } %>
 </body>
 </html>

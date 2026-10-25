@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baja empleado</title>
+    <title>Modificar empleado</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Baja de empleado</h1>
+        <h1>Modificar empleado</h1>
     </div>
 
     <a href="/empleado">Volver</a>
@@ -20,13 +20,22 @@
         <li><a href="/empleado/Most">Mostrar todos</a></li>
     </ul>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
+    
 
-    <form method="POST" action="/empleado/Baja">
-        <p>ID del empleado a dar de baja: <input type="text" name="idEmpleado"></p>
-        <button type="submit">Eliminar</button>
+    <form action="/empleado/Mod" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+        <p>Nombre</p>
+        <input type="text" name="nomhtml" placeholder="nombre">
+        <p>Cargo</p>
+        <input type="text" name="cargohtml" placeholder="cargo">
+        <p>Turno</p>
+        <input type="text" name="turnohtml" placeholder="turno">
+        
+
+        <input type="submit" name="AGREGAR" >
+        
+        
     </form>
 </body>
 </html>

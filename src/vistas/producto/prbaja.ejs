@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta producto</title>
+    <title>Baja producto</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Alta de producto</h1>
+        <h1>Baja de producto</h1>
     </div>
 
     <a href="/productos">Volver</a>
@@ -25,12 +25,9 @@
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form method="POST" action="/productos/Alta">
-        <p>ID: <input type="text" name="idProducto"></p>
-        <p>Nombre: <input type="text" name="nombreP"></p>
-        <p>Categoria: <input type="text" name="categoriaP"></p>
-        <p>Precio: <input type="text" name="precio_unitarioP"></p>
-        <button type="submit">Guardar</button>
+    <form method="POST" action="/productos/Baja">
+        <p>ID del producto a dar de baja: <input type="text" name="idhtml" placeholder="ID del producto">
+        <button type="submit" name="eliminar">Eliminar</button>
     </form>
 </body>
 </html>

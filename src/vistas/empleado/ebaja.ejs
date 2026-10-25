@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar empleado</title>
+    <title>Baja empleado</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Modificar empleado</h1>
+        <h1>Baja de empleado</h1>
     </div>
 
     <a href="/empleado">Volver</a>
@@ -24,12 +24,9 @@
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form method="POST" action="/empleado/Mod">
-        <p>ID: <input type="text" name="idEmpleado"></p>
-        <p>Nombre: <input type="text" name="nombreE"></p>
-        <p>Cargo: <input type="text" name="cargoE"></p>
-        <p>Turno: <input type="text" name="turnoE"></p>
-        <button type="submit">Actualizar</button>
+    <form method="POST" action="/empleado/Baja">
+        <p>ID del empleado a dar de baja: <input type="text" name="idhtml" placeholder="ID del empleado">
+        <button type="submit" name="eliminar">Eliminar</button>
     </form>
 </body>
 </html>

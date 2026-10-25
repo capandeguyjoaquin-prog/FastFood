@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar pedidos</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Mostrar todos los pedidos</h1>
+    </div>
+
+    <a href="/pedido">Volver</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+         <tbody>
+  
+
+
+     <% if(registros.length > 0){
+        registros.forEach(pedido=>{%>
+            
+            <tr>
+
+            <td><%= pedido.idPedido %></td>
+
+            <td><%=pedido.nombreP %></td>
+
+            <td><%=pedido.apellidoP %></td>
+
+            <td><%=pedido.telefonoP %></td>   
+
+            <td><%=pedido.direccionP %></td>
+             
+            </tr>
+            
+       <% })
+     }else{%>
+        <p>no hay pedidos</p>
+    <% } %> 
+    </tbody>
+
+    </table>
+</body>
+</html>

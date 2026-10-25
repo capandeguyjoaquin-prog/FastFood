@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baja cliente</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Baja de pedido</h1>
+    </div>
+
+    <a href="/pedido">Volver</a>
+    <ul>
+        <li><a href="/pedido/Alta">Dar de alta</a></li>
+        <li><a href="/pedido/Baja">Dar de baja</a></li>
+        <li><a href="/pedido/Mod">Modificar pedido</a></li>
+        <li><a href="/pedido/Cons">Consultar pedido</a></li>
+        <li><a href="/pedido/Most">Mostrar todos</a></li>
+    </ul>
+
+
+    <form method="POST" action="/pedido/Baja">
+        <p>ID del pedido a dar de baja: <input type="text" name="idhtml" placeholder="ID del pedido">
+        <button type="submit" name="eliminar">Eliminar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta pedido</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    
+
+    <div class="header">
+        <h1>Alta de pedido</h1>
+    </div>
+    <a href="/pedido">Volver</a>
+
+    <% if (typeof error !== 'undefined') { %>
+        <p><%= error %></p>
+    <% } %>
+
+    <ul>
+        <li><a href="/pedido/Alta">Dar de alta</a></li>
+        <li><a href="/pedido/Baja">Dar de baja</a></li>
+        <li><a href="/pedido/Mod">Modificar pedido</a></li>
+        <li><a href="/pedido/Cons">Consultar pedido</a></li>
+        <li><a href="/pedido/Most">Mostrar todos</a></li>
+    </ul>
+
+    <form action="/pedido/Alta" method="post">
+        <p>Id</p>
+        <input type="number" name="idhtml" placeholder="id">
+
+        <p>Fecha y hora</p>
+        <input type="datetime-local" name="fechahtml">
+
+        <p>Tipo de servicio</p>
+        <input type="text" name="tiposerviciohtml" placeholder="tipo de servicio">
+
+        <p>Estado del pedido</p>
+        <input type="text" name="estadopedidohtml" placeholder="estado del pedido">
+
+        <p>ID del cliente</p>
+        <input type="number" name="clienteIdhtml" placeholder="ID del cliente" required>
+
+        <p>ID del empleado</p>
+        <input type="number" name="empleadoIdhtml" placeholder="ID del empleado" required>
+
+        <input type="submit" value="AGREGAR">
+    </form>
+</body>
+</html>

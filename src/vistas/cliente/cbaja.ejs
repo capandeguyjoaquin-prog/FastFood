@@ -20,13 +20,10 @@
         <li><a href="/cliente/Most">Mostrar todos</a></li>
     </ul>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
 
     <form method="POST" action="/cliente/Baja">
-        <p>ID del cliente a dar de baja: <input type="text" name="idCliente"></p>
-        <button type="submit">Eliminar</button>
+        <p>ID del cliente a dar de baja: <input type="text" name="idhtml" placeholder="ID del cliente">
+        <button type="submit" name="eliminar">Eliminar</button>
     </form>
 </body>
 </html>

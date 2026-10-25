@@ -23,23 +23,33 @@
                 <th>Dirección</th>
             </tr>
         </thead>
-        <tbody>
-            <% if (registros && registros.length > 0) { %>
-                <% registros.forEach(cli => { %>
-                    <tr>
-                        <td><%= cli.idCliente %></td>
-                        <td><%= cli.nombreC %></td>
-                        <td><%= cli.apellidoC %></td>
-                        <td><%= cli.telefonoC %></td>
-                        <td><%= cli.direccionC %></td>
-                    </tr>
-                <% }) %>
-            <% } else { %>
-                <tr>
-                    <td colspan="5">No hay clientes</td>
-                </tr>
-            <% } %>
-        </tbody>
+         <tbody>
+  
+
+
+     <% if(registros.length > 0){
+        registros.forEach(cli=>{%>
+            
+            <tr>
+
+            <td><%= cli.idCliente %></td>
+
+            <td><%=cli.nombreC %></td>
+
+            <td><%=cli.apellidoC %></td>
+
+            <td><%=cli.telefonoC %></td>   
+
+            <td><%=cli.direccionC %></td>
+             
+            </tr>
+            
+       <% })
+     }else{%>
+        <p>no hay clientes</p>
+    <% } %> 
+    </tbody>
+
     </table>
 </body>
 </html>

@@ -25,12 +25,20 @@
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form method="POST" action="/productos/Mod">
-        <p>ID: <input type="text" name="idProducto"></p>
-        <p>Nombre: <input type="text" name="nombreP"></p>
-        <p>Categoria: <input type="text" name="categoriaP"></p>
-        <p>Precio: <input type="text" name="precio_unitarioP"></p>
-        <button type="submit">Actualizar</button>
+    <form action="/productos/Mod" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+        <p>Nombre</p>
+        <input type="text" name="nomhtml" placeholder="nombre">
+        <p>Categoria</p>
+        <input type="text" name="categoriahtml" placeholder="categoria">
+        <p>Precio</p>
+        <input type="text" name="preciohtml" placeholder="precio">
+        
+
+        <input type="submit" name="AGREGAR" >
+        
+        
     </form>
 </body>
 </html>

@@ -1,116 +1,98 @@
 import { conexion } from '../database/conexion.js';
 const con = await conexion();
 
-export const producto = (req, resp) => {
-    resp.render('productos');
-}
-
 export const pralta = (req, resp) => {
-    resp.render('pralta', { error: '' });
+    resp.render('producto/pralta');
 }
 
 export const guardarProducto = async (req, resp) => {
-    try {
-        const { idProducto, nombreP, categoriaP, precio_unitarioP } = req.body;
+    let id, nombre, precio,categoria;
+    id = req.body.idhtml;
+    nombre = req.body.nomhtml;
+    categoria = req.body.categoriahtml;
+    precio = req.body.preciohtml;
 
-        if (!idProducto || !nombreP || !categoriaP || !precio_unitarioP) {
-            return resp.render('pralta', { error: 'Complete todos los campos' });
-        }
-
-        const sql = 'INSERT INTO productos (idProducto, nombreP, categoriaP, precio_unitarioP) VALUES (?, ?, ?, ?)';
-        await con.query(sql, [idProducto, nombreP, categoriaP, precio_unitarioP]);
-
-        resp.redirect('/productos/Most');
-    } catch (error) {
-        console.log(error);
-        resp.render('pralta', { error: 'No se pudo guardar el producto' });
+    let Altasql = "INSERT INTO Productos (idProducto,nombreP,precio_unitarioP,categoriaP) VALUES ('"+ id+"','"+ nombre +"','"+ precio +"','"+ categoria+"');";
+    try{
+        const[registros]= await con.query(Altasql);
+        console.log(registros)
+        resp.render('producto/pralta')
+    }catch(error){
+        console.log(`error la sentencia insert ${error}`);
     }
 }
 
 export const prbaja = (req, resp) => {
-    resp.render('prbaja', { error: '' });
+    resp.render('producto/prbaja');
 }
 
 export const borrarProducto = async (req, resp) => {
+    let idProducto = req.body.idhtml;
+    let EliminarProductoSQL = "DELETE FROM Productos WHERE idProducto = '" + idProducto + "';";
     try {
-        const { idProducto } = req.body;
-
-        if (!idProducto) {
-            return resp.render('prbaja', { error: 'Ingrese un ID para borrar' });
-        }
-
-        const sql = 'DELETE FROM productos WHERE idProducto = ?';
-        const [resultado] = await con.query(sql, [idProducto]);
-
-        if (resultado.affectedRows === 0) {
-            return resp.render('prbaja', { error: 'No existe ese producto' });
-        }
-
-        resp.redirect('/productos/Most');
+       const [registros] = await con.query(EliminarProductoSQL);
+       console.log(registros);
+       resp.render('producto/prbaja');
     } catch (error) {
         console.log(error);
-        resp.render('prbaja', { error: 'No se pudo eliminar el producto' });
+        resp.render('producto/prbaja', { error: 'No se pudo eliminar el producto' });
     }
 }
 
 export const prmod = (req, resp) => {
-    resp.render('prmod', { error: '' });
+    resp.render('producto/prmod');
 }
 
 export const actualizarProducto = async (req, resp) => {
+    let id, nombre, precio, categoria;
+    id = req.body.idhtml;
+    nombre = req.body.nomhtml;
+    precio = req.body.preciohtml;
+    categoria = req.body.categoriahtml;
+    let ModificarProductoSQL = "UPDATE Productos SET nombreP = '" + nombre + "', precio_unitarioP = '" + precio + "', categoriaP = '" + categoria + "' WHERE idProducto = '" + id + "';";
     try {
-        const { idProducto, nombreP, categoriaP, precio_unitarioP } = req.body;
-
-        if (!idProducto || !nombreP || !categoriaP || !precio_unitarioP) {
-            return resp.render('prmod', { error: 'Complete todos los campos' });
-        }
-
-        const sql = 'UPDATE productos SET nombreP = ?, categoriaP = ?, precio_unitarioP = ? WHERE idProducto = ?';
-        const [resultado] = await con.query(sql, [nombreP, categoriaP, precio_unitarioP, idProducto]);
-
-        if (resultado.affectedRows === 0) {
-            return resp.render('prmod', { error: 'No existe ese producto' });
-        }
-
-        resp.redirect('/productos/Most');
+        const [registros] = await con.query(ModificarProductoSQL);
+        console.log(registros);
+        resp.render('producto/prmod');
     } catch (error) {
         console.log(error);
-        resp.render('prmod', { error: 'No se pudo modificar el producto' });
+        resp.render('producto/prmod', { error: 'No se pudo modificar el producto' });
     }
 }
 
 export const prcons = (req, resp) => {
-    resp.render('prcons', { error: '', producto: null });
+    resp.render('producto/prcons', { producto: null });
 }
 
 export const consultarProducto = async (req, resp) => {
+    let id;
+    id = req.body.idhtml;
+    let consultarProductoSQL = "SELECT * FROM Productos WHERE idProducto = '" + id + "';";
     try {
-        const { idProducto } = req.body;
-
-        if (!idProducto) {
-            return resp.render('prcons', { error: 'Ingrese un ID para consultar', producto: null });
-        }
-
-        const sql = 'SELECT * FROM productos WHERE idProducto = ?';
-        const [registros] = await con.query(sql, [idProducto]);
-
-        if (registros.length === 0) {
-            return resp.render('prcons', { error: 'No existe ese producto', producto: null });
-        }
-
-        resp.render('prcons', { error: '', producto: registros[0] });
+        const [registros] = await con.query(consultarProductoSQL);
+        console.log(registros);
+        resp.render('producto/prcons' , { producto: registros[0] });
     } catch (error) {
         console.log(error);
-        resp.render('prcons', { error: 'No se pudo consultar el producto', producto: null });
+        resp.render('producto/prcons', { error: 'No se pudo consultar el producto', producto: null });
     }
 }
 
-export const prmost = async (req, resp) => {
-    try {
-        const [registros] = await con.query('SELECT * FROM productos');
-        resp.render('prmost', { registros });
-    } catch (error) {
-        console.log(error);
-        resp.render('prmost', { registros: [] });
+
+
+export const prmost= async (req,resp)=>{
+    try{
+        let mostrarsql="SELECT * from Productos";
+        const[registros]= await con.query(mostrarsql)
+        console.log(registros)
+        resp.render('producto/prmost',{registros});
     }
-}
+    catch(error){
+        console.log(error);
+    }
+
+};
+
+export const productos = (req, resp) => {
+    resp.render('producto/productos');
+} 

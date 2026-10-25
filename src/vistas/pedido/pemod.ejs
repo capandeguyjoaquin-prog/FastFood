@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar pedido</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Modificar pedido</h1>
+    </div>
+
+    <a href="/pedido">Volver</a>
+    <ul>
+        <li><a href="/pedido/Alta">Dar de alta</a></li>
+        <li><a href="/pedido/Baja">Dar de baja</a></li>
+        <li><a href="/pedido/Mod">Modificar pedido</a></li>
+        <li><a href="/pedido/Cons">Consultar pedido</a></li>
+        <li><a href="/pedido/Most">Mostrar todos</a></li>
+    </ul>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form action="/pedido/Mod" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+        <p>Nombre</p>
+        <input type="text" name="nomhtml" placeholder="nombre">
+        <p>Apellido</p>
+        <input type="text" name="apellidohtml" placeholder="apellido">
+        <p>Telefono</p>
+        <input type="text" name="telhtml" placeholder="telefono">
+        <p>Direccion</p>
+        <input type="text" name="dirhtml" placeholder="direccion">
+        
+
+        <input type="submit" name="AGREGAR" >
+        
+        
+    </form>
+    
+</body>
+</html>

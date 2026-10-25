@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
+    
+
     <div class="header">
         <h1>Alta de cliente</h1>
     </div>
-
     <a href="/cliente">Volver</a>
 
     <ul>
@@ -21,17 +22,22 @@
         <li><a href="/cliente/Most">Mostrar todos</a></li>
     </ul>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
+    <form action="/cliente/Alta" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+        <p>Nombre</p>
+        <input type="text" name="nomhtml" placeholder="nombre">
+        <p>Apellido</p>
+        <input type="text" name="apellidohtml" placeholder="apellido">
+        <p>Telefono</p>
+        <input type="text" name="telhtml" placeholder="telefono">
+        <p>Direccion</p>
+        <input type="text" name="dirhtml" placeholder="direccion">
+        
 
-    <form method="POST" action="/cliente/Alta">
-        <p>ID: <input type="text" name="idCliente"></p>
-        <p>Nombre: <input type="text" name="nombreC"></p>
-        <p>Apellido: <input type="text" name="apellidoC"></p>
-        <p>Teléfono: <input type="text" name="telefonoC"></p>
-        <p>Dirección: <input type="text" name="direccionC"></p>
-        <button type="submit">Guardar</button>
+        <input type="submit" name="AGREGAR" >
+        
+        
     </form>
 </body>
 </html>

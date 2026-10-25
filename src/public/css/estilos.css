@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 30px;
-    background-color: #f3f3f3;
+    
+    background-color: #8c8d8d;
 }
 
 h1 {
@@ -10,7 +10,7 @@ h1 {
 
 .header {
     text-align: center;
-    margin-bottom: 20px;
+    
     background-color: rgb(97, 121, 187);
 }
 

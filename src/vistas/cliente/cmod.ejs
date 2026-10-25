@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar cliente</title>
+    <title>Modificar cliente</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Consultar cliente</h1>
+        <h1>Modificar cliente</h1>
     </div>
 
     <a href="/cliente">Volver</a>
@@ -24,18 +24,23 @@
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form method="POST" action="/cliente/Cons">
-        <p>ID a consultar: <input type="text" name="idCliente"></p>
-        <button type="submit">Buscar</button>
-    </form>
+    <form action="/cliente/Mod" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+        <p>Nombre</p>
+        <input type="text" name="nomhtml" placeholder="nombre">
+        <p>Apellido</p>
+        <input type="text" name="apellidohtml" placeholder="apellido">
+        <p>Telefono</p>
+        <input type="text" name="telhtml" placeholder="telefono">
+        <p>Direccion</p>
+        <input type="text" name="dirhtml" placeholder="direccion">
+        
 
-    <% if (cliente) { %>
-        <h3>Resultado:</h3>
-        <p>ID: <%= cliente.idCliente %></p>
-        <p>Nombre: <%= cliente.nombreC %></p>
-        <p>Apellido: <%= cliente.apellidoC %></p>
-        <p>Teléfono: <%= cliente.telefonoC %></p>
-        <p>Dirección: <%= cliente.direccionC %></p>
-    <% } %>
+        <input type="submit" name="AGREGAR" >
+        
+        
+    </form>
+    
 </body>
 </html>

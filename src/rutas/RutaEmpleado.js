@@ -1,6 +1,5 @@
 import express from "express";
-import {empleado,ealta,guardarEmpleado,ebaja,borrarEmpleado,
-    emod,actualizarEmpleado,econs,consultarEmpleado,emost} from '../controller/controlleremp.js';
+import {empleado,ealta,guardarEmpleado,ebaja,borrarEmpleado,emod,actualizarEmpleado,econs,consultarEmpleado,emost} from '../controller/controlleremp.js';
 
 const Rempleado = express.Router();
 

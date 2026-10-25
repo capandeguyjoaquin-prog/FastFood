@@ -1,20 +1,9 @@
 import express from "express";
-import {
-  producto,
-  pralta,
-  guardarProducto,
-  prbaja,
-  borrarProducto,
-  prmod,
-  actualizarProducto,
-  prcons,
-  consultarProducto,
-  prmost
-} from '../controller/controllerprod.js';
+import {productos,pralta,guardarProducto,prbaja,borrarProducto,prmod,actualizarProducto,prcons,consultarProducto,prmost} from '../controller/controllerprod.js';
 
 const Rproductos = express.Router();
 
-Rproductos.get('/productos', producto);
+Rproductos.get('/productos', productos);
 Rproductos.get('/productos/Alta', pralta);
 Rproductos.post('/productos/Alta', guardarProducto);
 Rproductos.get('/productos/Baja', prbaja);

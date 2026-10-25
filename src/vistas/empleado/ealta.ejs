@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar empleado</title>
+    <title>Alta empleado</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <div class="header">
-        <h1>Consultar empleado</h1>
+        <h1>Alta de empleado</h1>
     </div>
 
     <a href="/empleado">Volver</a>
+
     <ul>
         <li><a href="/empleado/Alta">Dar de alta</a></li>
         <li><a href="/empleado/Baja">Dar de baja</a></li>
@@ -20,21 +21,20 @@
         <li><a href="/empleado/Most">Mostrar todos</a></li>
     </ul>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
+     <form action="/empleado/Alta" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+        <p>Nombre</p>
+        <input type="text" name="nomhtml" placeholder="nombre">
+        <p>Cargo</p>
+        <input type="text" name="cargohtml" placeholder="cargo">
+        <p>Turno</p>
+        <input type="text" name="turnohtml" placeholder="turno">
+        
 
-    <form method="POST" action="/empleado/Cons">
-        <p>ID a consultar: <input type="text" name="idEmpleado"></p>
-        <button type="submit">Buscar</button>
+        <input type="submit" name="AGREGAR" >
+        
+        
     </form>
-
-    <% if (empleado) { %>
-        <h3>Resultado:</h3>
-        <p>ID: <%= empleado.idEmpleado %></p>
-        <p>Nombre: <%= empleado.nombreE %></p>
-        <p>Cargo: <%= empleado.cargoE %></p>
-        <p>Turno: <%= empleado.turnoE %></p>
-    <% } %>
 </body>
 </html>

@@ -21,13 +21,13 @@
         <li><a href="/productos/Most">Mostrar todos</a></li>
     </ul>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
+    
 
-    <form method="POST" action="/productos/Cons">
-        <p>ID a consultar: <input type="text" name="idProducto"></p>
-        <button type="submit">Buscar</button>
+     <form action="/productos/Cons" method="post" >
+        <p>Id
+        <input type="text" name="idhtml" placeholder="id">
+         <input type="submit" name="AGREGAR" >
+         </p>
     </form>
 
     <% if (producto) { %>
@@ -37,5 +37,6 @@
         <p>Categoría: <%= producto.categoriaP %></p>
         <p>Precio: <%= producto.precio_unitarioP %></p>
     <% } %>
+    
 </body>
 </html>
