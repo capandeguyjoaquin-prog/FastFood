@@ -7,40 +7,67 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Modificar pedido</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+        <div class="texto-marca">
+            <h1>MODIFICAR PEDIDO</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/pedido">Volver</a>
-    <ul>
-        <li><a href="/pedido/Alta">Dar de alta</a></li>
-        <li><a href="/pedido/Baja">Dar de baja</a></li>
-        <li><a href="/pedido/Mod">Modificar pedido</a></li>
-        <li><a href="/pedido/Cons">Consultar pedido</a></li>
-        <li><a href="/pedido/Most">Mostrar todos</a></li>
-    </ul>
+    <main class="contenedor-principal">
+
+    
+    <nav class="menu-principal" aria-label="Apartados de pedidos">
+    <a class="opcion-menu" href="/pedido/Alta">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Baja">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Mod">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Modificar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Cons">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Consultar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Most">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
 
     <% if (typeof error !== 'undefined' && error) { %>
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form action="/pedido/Mod" method="post" >
+    <form class="formulario-datos" action="/pedido/Mod" method="post" >
         <p>Id</p>
-        <input type="text" name="idhtml" placeholder="id">
-        <p>Nombre</p>
-        <input type="text" name="nomhtml" placeholder="nombre">
-        <p>Apellido</p>
-        <input type="text" name="apellidohtml" placeholder="apellido">
-        <p>Telefono</p>
-        <input type="text" name="telhtml" placeholder="telefono">
-        <p>Direccion</p>
-        <input type="text" name="dirhtml" placeholder="direccion">
-        
+        <input type="number" name="idhtml" placeholder="id">
 
-        <input type="submit" name="AGREGAR" >
-        
-        
+        <p>Fecha y hora</p>
+        <input type="datetime-local" name="fechahtml">
+
+        <p>Tipo de servicio</p>
+        <input type="text" name="tiposerviciohtml" placeholder="tipo de servicio">
+
+        <p>Estado del pedido</p>
+        <input type="text" name="estadopedidohtml" placeholder="estado del pedido">
+
+        <p>ID del cliente</p>
+        <input type="number" name="clienteIdhtml" placeholder="ID del cliente" required>
+
+        <p>ID del empleado</p>
+        <input type="number" name="empleadoIdhtml" placeholder="ID del empleado" required>
+
+        <input type="submit" value="AGREGAR">
     </form>
     
+    </main>
 </body>
 </html>

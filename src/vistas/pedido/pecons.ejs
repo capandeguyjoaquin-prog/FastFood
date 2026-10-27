@@ -7,20 +7,42 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Consultar pedido</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+        <div class="texto-marca">
+            <h1>CONSULTAR PEDIDO</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/pedido">Volver</a>
-    <ul>
-        <li><a href="/pedido/Alta">Dar de alta</a></li>
-        <li><a href="/pedido/Baja">Dar de baja</a></li>
-        <li><a href="/pedido/Mod">Modificar pedido</a></li>
-        <li><a href="/pedido/Cons">Consultar pedido</a></li>
-        <li><a href="/pedido/Most">Mostrar todos</a></li>
-    </ul>
+    <main class="contenedor-principal">
 
-    <form action="/pedido/Cons" method="post" >
+    
+    <nav class="menu-principal" aria-label="Apartados de pedidos">
+    <a class="opcion-menu" href="/pedido/Alta">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Baja">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Mod">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Modificar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Cons">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Consultar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Most">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
+
+    <form class="formulario-datos" action="/pedido/Cons" method="post" >
         <p>Id</p>
         <input type="text" name="idhtml" placeholder="id">
          <input type="submit" name="AGREGAR" >
@@ -29,10 +51,12 @@
     <% if (pedido) { %>
         <h3>Resultado:</h3>
         <p>ID: <%= pedido.idPedido %></p>
-        <p>Nombre: <%= pedido.nombreP %></p>
-        <p>Apellido: <%= pedido.apellidoP %></p>
-        <p>Teléfono: <%= pedido.telefonoP %></p>
-        <p>Dirección: <%= pedido.direccionP %></p>
+        <p>Fecha y hora: <%= new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></p>
+        <p>Tipo de servicio: <%= pedido.tipo_servicioPe %></p>
+        <p>Estado del pedido: <%= pedido.estadoPe %></p>
+        <p>ID cliente: <%= pedido.Cliente_idCliente %></p>
+        <p>ID empleado: <%= pedido.Empleados_idEmpleado %></p>
     <% } %>
+    </main>
 </body>
 </html>

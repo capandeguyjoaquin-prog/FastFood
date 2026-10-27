@@ -7,20 +7,38 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Productos</h1>
-    </div>
+    <header class="encabezado-principal">
+        <a class="volver-inicio" href="/">Volver al inicio</a>
+        <div class="marca">
+            <div class="texto-marca">
+                <h1>PRODUCTOS</h1>
+            </div>
+        </div>
+    </header>
 
-    <a href="/">Volver</a>
-
-    <ul>
-        <li><a href="/productos/Alta">Dar de alta</a></li>
-        <li><a href="/productos/Baja">Dar de baja</a></li>
-        <li><a href="/productos/Mod">Modificar producto</a></li>
-        <li><a href="/productos/Cons">Consultar producto</a></li>
-        <li><a href="/productos/Most">Mostrar todos</a></li>
-    </ul>
-
-   
+    <main class="contenedor-principal">
+        <nav class="menu-principal" aria-label="Apartados de productos">
+            <a class="opcion-menu" href="/productos/Alta">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Dar de alta</span>
+            </a>
+            <a class="opcion-menu" href="/productos/Baja">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Dar de baja</span>
+            </a>
+            <a class="opcion-menu" href="/productos/Mod">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Modificar producto</span>
+            </a>
+            <a class="opcion-menu" href="/productos/Cons">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Consultar producto</span>
+            </a>
+            <a class="opcion-menu" href="/productos/Most">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Mostrar todos</span>
+            </a>
+        </nav>
+    </main>
 </body>
 </html>

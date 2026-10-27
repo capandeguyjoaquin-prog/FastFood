@@ -7,23 +7,46 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Baja de pedido</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+       <div class="texto-marca">
+            <h1>BAJA DE PEDIDO</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/pedido">Volver</a>
-    <ul>
-        <li><a href="/pedido/Alta">Dar de alta</a></li>
-        <li><a href="/pedido/Baja">Dar de baja</a></li>
-        <li><a href="/pedido/Mod">Modificar pedido</a></li>
-        <li><a href="/pedido/Cons">Consultar pedido</a></li>
-        <li><a href="/pedido/Most">Mostrar todos</a></li>
-    </ul>
+    <main class="contenedor-principal">
+
+    
+    <nav class="menu-principal" aria-label="Apartados de pedidos">
+    <a class="opcion-menu" href="/pedido/Alta">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Baja">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Mod">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Modificar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Cons">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Consultar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Most">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
 
 
-    <form method="POST" action="/pedido/Baja">
+    <form class="formulario-datos" method="POST" action="/pedido/Baja">
         <p>ID del pedido a dar de baja: <input type="text" name="idhtml" placeholder="ID del pedido">
         <button type="submit" name="eliminar">Eliminar</button>
     </form>
+    </main>
 </body>
 </html>

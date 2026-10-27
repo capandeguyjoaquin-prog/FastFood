@@ -51,12 +51,14 @@ export const pemod = (req, resp) => {
 }
 
 export const actualizarPedido = async (req, resp) => {
-    let id, fecha,tipo_servicio,estado_pedido;
+     let id, fecha, tipo_servicio, estado_pedido, cliente, empleado;
     id = req.body.idhtml;
     fecha = req.body.fechahtml;
     tipo_servicio = req.body.tiposerviciohtml;
     estado_pedido = req.body.estadopedidohtml;
-    let ModificarPedidoSQL = "UPDATE Pedidos SET fecha = '" + fecha + "', tipoServicio = '" + tipo_servicio + "', estadoPedido = '" + estado_pedido + "' WHERE idPedido = '" + id + "';";
+    cliente = req.body.clienteIdhtml;
+    empleado = req.body.empleadoIdhtml;
+    let ModificarPedidoSQL = "UPDATE Pedidos SET fecha_pedidosPe = '" + fecha + "', tipo_servicioPe = '" + tipo_servicio + "', estadoPe = '" + estado_pedido + "', Cliente_idCliente = '" + cliente + "', Empleados_idEmpleado = '" + empleado + "' WHERE idPedido = '" + id + "';";
     try {
         const [registros] = await con.query(ModificarPedidoSQL);
         console.log(registros);

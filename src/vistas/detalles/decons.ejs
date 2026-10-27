@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar detalles</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+       <div class="texto-marca">
+            <h1>CONSULTAR DETALLE</h1>
+        </div>
+    </div>
+</header>
+
+    <main class="contenedor-principal">
+
+    
+    <nav class="menu-principal" aria-label="Apartados del detalle de pedidos">
+    <a class="opcion-menu" href="/detalle/Alta">
+        <img class="imagen-opcion" src="/img/detalle.webp" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/detalle/Baja">
+        <img class="imagen-opcion" src="/img/detalle.webp" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/detalle/Mod">
+        <img class="imagen-opcion" src="/img/detalle.webp" alt="">
+        <span>Modificar detalle</span>
+    </a>
+    <a class="opcion-menu" href="/detalle/Cons">
+        <img class="imagen-opcion" src="/img/detalle.webp" alt="">
+        <span>Consultar detalle</span>
+    </a>
+    <a class="opcion-menu" href="/detalle/Most">
+        <img class="imagen-opcion" src="/img/detalle.webp" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
+
+    <form class="formulario-datos" action="/detalle/Cons" method="post" >
+        <p>Id</p>
+        <input type="text" name="idhtml" placeholder="id">
+         <input type="submit" name="AGREGAR" >
+    </form>
+
+    <% if (detalle) { %>
+        <h3>Resultado:</h3>
+        <p>ID: <%= detalle.idDetalle %></p>
+        <p>Cantidad: <%= detalle.cantidadDeta %></p>
+        <p>Subtotal: <%= detalle.subtotalDeta %></p>
+        <p>Id Producto: <%= detalle.Productos_idProducto %></p>
+        <p>Id Pedido: <%= detalle.Pedidos_idPedido %></p>
+    <% } %>
+    </main>
+</body>
+</html>

@@ -7,20 +7,50 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Mostrar todos los pedidos</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+        <div class="texto-marca">
+            <h1>MOSTRAR TODOS LOS PEDIDOS</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/pedido">Volver</a>
+    <main class="contenedor-principal">
+        <nav class="menu-principal" aria-label="Apartados de pedidos">
+    <a class="opcion-menu" href="/pedido/Alta">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Baja">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Mod">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Modificar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Cons">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Consultar pedido</span>
+    </a>
+    <a class="opcion-menu" href="/pedido/Most">
+        <img class="imagen-opcion" src="/img/pedido.png" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
 
-    <table border="1">
+    
+
+    <table class="tabla-datos">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
+                <th>Fecha y hora</th>
+                <th>Tipo de servicio</th>
+                <th>Estado del pedido</th>
+                <th>ID cliente</th>
+                <th>ID empleado</th>
             </tr>
         </thead>
          <tbody>
@@ -34,13 +64,15 @@
 
             <td><%= pedido.idPedido %></td>
 
-            <td><%=pedido.nombreP %></td>
+            <td><%=new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></td>
 
-            <td><%=pedido.apellidoP %></td>
+            <td><%=pedido.tipo_servicioPe %></td>
 
-            <td><%=pedido.telefonoP %></td>   
+            <td><%=pedido.estadoPe %></td>
 
-            <td><%=pedido.direccionP %></td>
+            <td><%=pedido.Cliente_idCliente %></td>   
+
+            <td><%=pedido.Empleados_idEmpleado %></td>
              
             </tr>
             
@@ -51,5 +83,6 @@
     </tbody>
 
     </table>
+    </main>
 </body>
 </html>

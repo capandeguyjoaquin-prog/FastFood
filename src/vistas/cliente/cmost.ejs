@@ -7,13 +7,42 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Mostrar todos los clientes</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+        <div class="texto-marca">
+            <h1>MOSTRAR TODOS LOS CLIENTES</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/cliente">Volver</a>
+    <main class="contenedor-principal">
+        <nav class="menu-principal" aria-label="Apartados de clientes">
+    <a class="opcion-menu" href="/cliente/Alta">
+        <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/cliente/Baja">
+        <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/cliente/Mod">
+        <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+        <span>Modificar cliente</span>
+    </a>
+    <a class="opcion-menu" href="/cliente/Cons">
+        <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+        <span>Consultar cliente</span>
+    </a>
+    <a class="opcion-menu" href="/cliente/Most">
+        <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
 
-    <table border="1">
+    
+
+    <table class="tabla-datos">
         <thead>
             <tr>
                 <th>ID</th>
@@ -51,5 +80,6 @@
     </tbody>
 
     </table>
+    </main>
 </body>
 </html>

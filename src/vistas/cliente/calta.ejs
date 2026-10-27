@@ -3,41 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta cliente</title>
+    <title>Alta de cliente</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    
+    <header class="encabezado-principal">
+        <a class="volver-inicio" href="/">Volver al inicio</a>
+        <div class="marca">
+            <div class="texto-marca">
+                <h1>ALTA DE CLIENTE</h1>
+            </div>
+        </div>
+    </header>
 
-    <div class="header">
-        <h1>Alta de cliente</h1>
-    </div>
-    <a href="/cliente">Volver</a>
+    <main class="contenedor-principal">
+        <nav class="menu-principal" aria-label="Apartados de clientes">
+            <a class="opcion-menu" href="/cliente/Alta">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Dar de alta</span>
+            </a>
+            <a class="opcion-menu" href="/cliente/Baja">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Dar de baja</span>
+            </a>
+            <a class="opcion-menu" href="/cliente/Mod">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Modificar cliente</span>
+            </a>
+            <a class="opcion-menu" href="/cliente/Cons">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Consultar cliente</span>
+            </a>
+            <a class="opcion-menu" href="/cliente/Most">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Mostrar todos</span>
+            </a>
+        </nav>
 
-    <ul>
-        <li><a href="/cliente/Alta">Dar de alta</a></li>
-        <li><a href="/cliente/Baja">Dar de baja</a></li>
-        <li><a href="/cliente/Mod">Modificar cliente</a></li>
-        <li><a href="/cliente/Cons">Consultar cliente</a></li>
-        <li><a href="/cliente/Most">Mostrar todos</a></li>
-    </ul>
+        <form class="formulario-datos" action="/cliente/Alta" method="post">
+            <label for="id-cliente">ID</label>
+            <input id="id-cliente" type="text" name="idhtml" placeholder="ID">
 
-    <form action="/cliente/Alta" method="post" >
-        <p>Id</p>
-        <input type="text" name="idhtml" placeholder="id">
-        <p>Nombre</p>
-        <input type="text" name="nomhtml" placeholder="nombre">
-        <p>Apellido</p>
-        <input type="text" name="apellidohtml" placeholder="apellido">
-        <p>Telefono</p>
-        <input type="text" name="telhtml" placeholder="telefono">
-        <p>Direccion</p>
-        <input type="text" name="dirhtml" placeholder="direccion">
-        
+            <label for="nombre-cliente">Nombre</label>
+            <input id="nombre-cliente" type="text" name="nomhtml" placeholder="Nombre">
 
-        <input type="submit" name="AGREGAR" >
-        
-        
-    </form>
+            <label for="apellido-cliente">Apellido</label>
+            <input id="apellido-cliente" type="text" name="apellidohtml" placeholder="Apellido">
+
+            <label for="telefono-cliente">Teléfono</label>
+            <input id="telefono-cliente" type="text" name="telhtml" placeholder="Teléfono">
+
+            <label for="direccion-cliente">Dirección</label>
+            <input id="direccion-cliente" type="text" name="dirhtml" placeholder="Dirección">
+
+            <button type="submit" name="AGREGAR">Agregar cliente</button>
+        </form>
+    </main>
 </body>
 </html>

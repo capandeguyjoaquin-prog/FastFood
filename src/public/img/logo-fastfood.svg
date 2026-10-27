@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fast Food</title>
+  <desc id="desc">Logo simple de Fast Food</desc>
+  <rect width="120" height="120" fill="#111111"/>
+  <rect x="16" y="16" width="88" height="88" rx="12" fill="#ffffff" opacity="0.08"/>
+  <text x="60" y="58" text-anchor="middle" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="2">FF</text>
+  <text x="60" y="84" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="3">FAST</text>
+</svg>

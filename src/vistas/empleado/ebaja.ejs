@@ -7,26 +7,49 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Baja de empleado</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+        <div class="texto-marca">
+            <h1>BAJA DE EMPLEADO</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/empleado">Volver</a>
-    <ul>
-        <li><a href="/empleado/Alta">Dar de alta</a></li>
-        <li><a href="/empleado/Baja">Dar de baja</a></li>
-        <li><a href="/empleado/Mod">Modificar empleado</a></li>
-        <li><a href="/empleado/Cons">Consultar empleado</a></li>
-        <li><a href="/empleado/Most">Mostrar todos</a></li>
-    </ul>
+    <main class="contenedor-principal">
+
+    
+    <nav class="menu-principal" aria-label="Apartados de empleados">
+    <a class="opcion-menu" href="/empleado/Alta">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Baja">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Mod">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Modificar empleado</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Cons">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Consultar empleado</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Most">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
 
     <% if (typeof error !== 'undefined' && error) { %>
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form method="POST" action="/empleado/Baja">
+    <form class="formulario-datos" method="POST" action="/empleado/Baja">
         <p>ID del empleado a dar de baja: <input type="text" name="idhtml" placeholder="ID del empleado">
         <button type="submit" name="eliminar">Eliminar</button>
     </form>
+    </main>
 </body>
 </html>

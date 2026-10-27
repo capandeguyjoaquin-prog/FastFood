@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fast Food</title>
-    <link rel="stylesheet" href="   /css/estilos.css">
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-    <h1>FAST FOOD</h1>
-    </div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/cliente">Cliente</a></li>
-        <li><a href="/empleado">Empleado</a></li>
-        <li><a href="/productos">Productos</a></li>
-        <li><a href="/pedido">Pedidos</a></li>
-        <li><a href="/detalle">Detalle de Pedido</a></li>
-    </ul>
+    <header class="encabezado-principal">
+        <div class="marca">
+             <div class="texto-marca">
+                <h1>FAST FOOD</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <nav class="menu-principal" aria-label="Navegación principal">
+            <a class="opcion-menu" href="/cliente">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Cliente</span>
+            </a>
+            <a class="opcion-menu" href="/empleado">
+                <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+                <span>Empleado</span>
+            </a>
+            <a class="opcion-menu" href="/productos">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Productos</span>
+            </a>
+            <a class="opcion-menu" href="/pedido">
+                <img class="imagen-opcion" src="/img/pedido.png" alt="">
+                <span>Pedidos</span>
+            </a>
+            <a class="opcion-menu" href="/detalle">
+                <img class="imagen-opcion" src="/img/detalle.webp" alt="">
+                <span>Detalle</span>
+            </a>
+        </nav>
+    </main>
 </body>
 </html>

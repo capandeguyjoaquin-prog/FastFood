@@ -7,24 +7,46 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Consultar empleado</h1>
+    <header class="encabezado-principal">
+    <a class="volver-inicio" href="/">Volver al inicio</a>
+    <div class="marca">
+       <div class="texto-marca">
+            <h1>CONSULTAR EMPLEADO</h1>
+        </div>
     </div>
+</header>
 
-    <a href="/empleado">Volver</a>
-    <ul>
-        <li><a href="/empleado/Alta">Dar de alta</a></li>
-        <li><a href="/empleado/Baja">Dar de baja</a></li>
-        <li><a href="/empleado/Mod">Modificar empleado</a></li>
-        <li><a href="/empleado/Cons">Consultar empleado</a></li>
-        <li><a href="/empleado/Most">Mostrar todos</a></li>
-    </ul>
+    <main class="contenedor-principal">
+
+    
+    <nav class="menu-principal" aria-label="Apartados de empleados">
+    <a class="opcion-menu" href="/empleado/Alta">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Dar de alta</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Baja">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Dar de baja</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Mod">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Modificar empleado</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Cons">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Consultar empleado</span>
+    </a>
+    <a class="opcion-menu" href="/empleado/Most">
+        <img class="imagen-opcion" src="/img/empleado.jpg" alt="">
+        <span>Mostrar todos</span>
+    </a>
+</nav>
 
     <% if (typeof error !== 'undefined' && error) { %>
         <p style="color: red;"><%= error %></p>
     <% } %>
 
-    <form action="/empleado/Cons" method="post" >
+    <form class="formulario-datos" action="/empleado/Cons" method="post" >
         <p>Id
         <input type="text" name="idhtml" placeholder="id">
          <input type="submit" name="AGREGAR" >
@@ -38,5 +60,6 @@
         <p>Cargo: <%= empleado.cargoE %></p>
         <p>Turno: <%= empleado.turnoE %></p>
     <% } %>
+    </main>
 </body>
 </html>
