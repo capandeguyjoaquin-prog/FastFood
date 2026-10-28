@@ -166,3 +166,12 @@ h1 {
     margin: 8px auto;
 }
 
+.contenedor-principal > .mensaje-error {
+    color: #b42318;
+    font-weight: 700;
+}
+
+.contenedor-principal > .mensaje-exito {
+    color: #187a36;
+    font-weight: 700;
+}

@@ -41,7 +41,12 @@
         <span>Mostrar todos</span>
     </a>
 </nav>
-
+    <% if (error) { %>
+          <p class="mensaje-error"><%= error %></p>
+        <% } %>
+        <% if (mensaje) { %>
+          <p class="mensaje-exito"><%= mensaje %></p>
+        <% } %>
     <form class="formulario-datos" action="/cliente/Cons" method="post" >
         <p>Id</p>
         <input type="text" name="idhtml" placeholder="id">

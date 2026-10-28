@@ -1,7 +1,7 @@
 import { conexion } from '../database/conexion.js';
 const con = await conexion();
 
-export const dealta = (peq, resp) => {
+export const dealta = (req, resp) => {
     resp.render('detalles/dealta');
 }
 
@@ -86,7 +86,7 @@ export const consultarDetalle = async (req, resp) => {
 
 
 
-export const demost= async (peq,resp)=>{
+export const demost= async (req,resp)=>{
     try{
         let mostrarsql="SELECT * from Detalle_Pedido";
         const[registros]= await con.query(mostrarsql)

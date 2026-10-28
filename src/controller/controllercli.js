@@ -1,8 +1,8 @@
 import { conexion } from '../database/conexion.js';
 const con = await conexion();
 
-export const calta = (peq, resp) => {
-    resp.render('cliente/calta');
+export const calta = (req, resp) => {
+    resp.render('cliente/calta', { error: null, mensaje: null });
 }
 
 export const guardarCliente = async (req, resp) => {
@@ -15,16 +15,27 @@ export const guardarCliente = async (req, resp) => {
     
     let Altasql = "INSERT INTO cliente (idCliente,nombreC,apellidoC,telefonoC,direccionC) VALUES ('"+ id+"','"+ nombre +"','"+ apellido +"','"+ tel+"','"+ direc+"');";
     try{
+
         const[registros]= await con.query(Altasql);
         console.log(registros)
-        resp.render('cliente/calta')
+        resp.render('cliente/calta', {
+            error: null,
+            mensaje: 'Cliente guardado correctamente.'
+        });
     }catch(error){
         console.log(`error la sentencia insert ${error}`);
+        resp.render('cliente/calta', {
+            error: 'No se pudo guardar el cliente. Verifica los datos e intenta nuevamente.',
+            mensaje: null
+        });
     }
 }
 
 export const cbaja = (req, resp) => {
-    resp.render('cliente/cbaja');
+    resp.render('cliente/cbaja', {
+        error: null,
+        mensaje: null
+    });
 }
 
 export const borrarCliente = async (req, resp) => {
@@ -33,15 +44,21 @@ export const borrarCliente = async (req, resp) => {
     try {
        const [registros] = await con.query(EliminarClienteSQL);
        console.log(registros);
-       resp.render('cliente/cbaja');
+       resp.render('cliente/cbaja', {
+            error: null,
+            mensaje: 'Cliente eliminado correctamente.'
+        });
     } catch (error) {
         console.log(error);
-        resp.render('cliente/cbaja', { error: 'No se pudo eliminar el cliente' });
+        resp.render('cliente/cbaja', {
+            error: 'No se pudo eliminar el cliente. Verifica los datos e intenta nuevamente.',
+            mensaje: null
+        });
     }
 }
 
 export const cmod = (req, resp) => {
-    resp.render('cliente/cmod');
+    resp.render('cliente/cmod', { error: null, mensaje: null });
 }
 
 export const actualizarCliente = async (req, resp) => {
@@ -55,15 +72,21 @@ export const actualizarCliente = async (req, resp) => {
     try {
         const [registros] = await con.query(ModificarClienteSQL);
         console.log(registros);
-        resp.render('cliente/cmod');
+        resp.render('cliente/cmod', {
+            error: null,
+            mensaje: 'Cliente modificado correctamente.'
+        });
     } catch (error) {
         console.log(error);
-        resp.render('cliente/cmod', { error: 'No se pudo modificar el cliente' });
+        resp.render('cliente/cmod', {
+            error: 'No se pudo modificar el cliente. Verifica los datos e intenta nuevamente.',
+            mensaje: null
+        });
     }
 }
 
 export const ccons = (req, resp) => {
-    resp.render('cliente/ccons', { cliente: null });
+    resp.render('cliente/ccons', { cliente: null , error: null, mensaje: null });
 }
 
 export const consultarCliente = async (req, resp) => {
@@ -73,16 +96,23 @@ export const consultarCliente = async (req, resp) => {
     try {
         const [registros] = await con.query(consultarClienteSQL);
         console.log(registros);
-        resp.render('cliente/ccons' , { cliente: registros[0] });
+        resp.render('cliente/ccons' , { cliente: registros[0] }, {
+            error: null,
+            mensaje: 'Cliente consultado correctamente.'
+        });
     } catch (error) {
         console.log(error);
-        resp.render('cliente/ccons', { error: 'No se pudo consultar el cliente', cliente: null });
+        resp.render('cliente/ccons', {
+            error: 'No se pudo consultar el cliente. Verifica los datos e intenta nuevamente.',
+            mensaje: null
+            , cliente: null
+        });
     }
 }
 
 
 
-export const cmost= async (peq,resp)=>{
+export const cmost= async (req,resp)=>{
     try{
         let mostrarsql="SELECT * from Cliente";
         const[registros]= await con.query(mostrarsql)
@@ -91,6 +121,11 @@ export const cmost= async (peq,resp)=>{
     }
     catch(error){
         console.log(error);
+        resp.render('cliente/cmost', {
+            error: 'No se pudo mostrar los clientes. Verifica los datos e intenta nuevamente.',
+            mensaje: null
+            , cliente: null
+        });
     }
 
 };

@@ -42,9 +42,12 @@
     </a>
 </nav>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
+        <% if (error) { %>
+          <p class="mensaje-error"><%= error %></p>
+        <% } %>
+        <% if (mensaje) { %>
+          <p class="mensaje-exito"><%= mensaje %></p>
+        <% } %>
 
     <form class="formulario-datos" action="/cliente/Mod" method="post" >
         <p>Id</p>
