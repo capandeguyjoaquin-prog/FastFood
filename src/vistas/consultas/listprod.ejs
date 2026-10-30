@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos por precio</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header class="encabezado-principal">
+        <a class="volver-inicio" href="/consultas">Volver a consultas</a>
+        <div class="marca">
+            <div class="texto-marca">
+                <h1>PRODUCTOS POR PRECIO</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+         
+        <nav class="menu-principal" aria-label="Consultas">
+            <a class="opcion-menu" href="/consultas/listprod">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Listar productos por precio</span>
+            </a>
+            <a class="opcion-menu" href="/consultas/pedcliente">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Pedidos de un cliente</span>
+            </a>
+            <a class="opcion-menu" href="/consultas/totaldia">
+                <img class="imagen-opcion" src="/img/pedido.png" alt="">
+                <span>Total recaudado en el día</span>
+            </a>
+        </nav>
+    
+        <% if (error) { %>
+            <p class="mensaje-error"><%= error %></p>
+        <% } %>
+
+        <form class="formulario-datos" action="/consultas/listprod" method="post">
+            <label for="precioMinimo">Mostrar productos con precio mayor a:</label>
+            <input
+                id="precioMinimo"
+                type="number"
+                name="precioMinimo"
+            >
+            <button type="submit">Buscar</button>
+        </form>
+
+        <% if (busquedaRealizada) { %>
+            <% if (productos.length > 0) { %>
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Categoría</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% productos.forEach(producto => { %>
+                            <tr>
+                                <td><%= producto.idProducto %></td>
+                                <td><%= producto.nombreP %></td>
+                                <td><%= producto.precio_unitarioP %></td>
+                                <td><%= producto.categoriaP %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No se encontraron productos con un precio mayor a ese valor.</p>
+            <% } %>
+        <% } %>
+    </main>
+</body>
+</html>

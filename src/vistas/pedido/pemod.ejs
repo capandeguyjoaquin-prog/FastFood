@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar pedido</title>
+    <title>Modificar pedido y detalle</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <header class="encabezado-principal">
-    <a class="volver-inicio" href="/">Volver al inicio</a>
-    <div class="marca">
-        <div class="texto-marca">
-            <h1>MODIFICAR PEDIDO</h1>
-        </div>
-    </div>
-</header>
+        <a class="volver-inicio" href="/">Volver al inicio</a>
+        <div class="marca"><div class="texto-marca"><h1>MODIFICAR PEDIDO Y DETALLE</h1></div></div>
+    </header>
 
     <main class="contenedor-principal">
+    
 
     
+
     <nav class="menu-principal" aria-label="Apartados de pedidos">
     <a class="opcion-menu" href="/pedido/Alta">
         <img class="imagen-opcion" src="/img/pedido.png" alt="">
@@ -42,32 +40,52 @@
     </a>
 </nav>
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
+            <% if (!mostrarDetalle) { %>
 
-    <form class="formulario-datos" action="/pedido/Mod" method="post" >
-        <p>Id</p>
-        <input type="number" name="idhtml" placeholder="id">
+        <h2>Modificar pedido</h2>
+        <form class="formulario-datos" action="/pedido/Mod" method="post">
+            <label for="pedidoId">ID del pedido</label>
+            <input id="pedidoId" type="number" name="idhtml" required>
 
-        <p>Fecha y hora</p>
-        <input type="datetime-local" name="fechahtml">
+            <label for="fechaPedido">Fecha y hora</label>
+            <input id="fechaPedido" type="datetime-local" name="fechahtml">
 
-        <p>Tipo de servicio</p>
-        <input type="text" name="tiposerviciohtml" placeholder="tipo de servicio">
+            <label for="tipoServicio">Tipo de servicio</label>
+            <input id="tipoServicio" type="text" name="tiposerviciohtml">
 
-        <p>Estado del pedido</p>
-        <input type="text" name="estadopedidohtml" placeholder="estado del pedido">
+            <label for="estadoPedido">Estado del pedido</label>
+            <input id="estadoPedido" type="text" name="estadopedidohtml">
 
-        <p>ID del cliente</p>
-        <input type="number" name="clienteIdhtml" placeholder="ID del cliente" required>
+            <label for="clienteId">ID del cliente</label>
+            <input id="clienteId" type="number" name="clienteIdhtml" required>
 
-        <p>ID del empleado</p>
-        <input type="number" name="empleadoIdhtml" placeholder="ID del empleado" required>
+            <label for="empleadoId">ID del empleado</label>
+            <input id="empleadoId" type="number" name="empleadoIdhtml" required>
 
-        <input type="submit" value="AGREGAR">
+            <button type="submit">Modificar pedido</button>
+        </form>
+        <% } %>
+        <% if (mostrarDetalle && pedidoId) { %>
+    <h2>Modificar detalle del pedido <%= pedidoId %></h2>
+    <form class="formulario-datos" action="/pedido/Mod/Detalle" method="post">
+        <label for="detalleId">ID del detalle</label>
+        <input id="detalleId" type="number" name="idhtml" required>
+
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" type="number" name="cantidadhtml"
+               min="1" step="1" required>
+
+        <label for="productoId">ID del producto</label>
+        <input id="productoId" type="number" name="idproductohtml" required>
+
+        <input type="hidden" name="idpedidohtml" value="<%= pedidoId %>">
+
+        <button type="submit">Modificar detalle</button>
     </form>
-    
+<% } %>
     </main>
 </body>
 </html>

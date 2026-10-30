@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baja cliente</title>
+    <title>Baja de pedido y detalle</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <header class="encabezado-principal">
-    <a class="volver-inicio" href="/">Volver al inicio</a>
-    <div class="marca">
-       <div class="texto-marca">
-            <h1>BAJA DE PEDIDO</h1>
-        </div>
-    </div>
-</header>
+        <a class="volver-inicio" href="/">Volver al inicio</a>
+        <div class="marca"><div class="texto-marca"><h1>BAJA DE PEDIDO Y DETALLE</h1></div></div>
+    </header>
 
     <main class="contenedor-principal">
+    
 
     
+
     <nav class="menu-principal" aria-label="Apartados de pedidos">
     <a class="opcion-menu" href="/pedido/Alta">
         <img class="imagen-opcion" src="/img/pedido.png" alt="">
@@ -42,11 +40,17 @@
     </a>
 </nav>
 
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
 
-    <form class="formulario-datos" method="POST" action="/pedido/Baja">
-        <p>ID del pedido a dar de baja: <input type="text" name="idhtml" placeholder="ID del pedido">
-        <button type="submit" name="eliminar">Eliminar</button>
-    </form>
+        <h2>Eliminar pedido</h2>
+        <form class="formulario-datos" method="POST" action="/pedido/Baja">
+            <label for="idPedido">ID del pedido</label>
+            <input id="idPedido" type="number" name="idhtml" required>
+            <button type="submit">Eliminar pedido y sus detalles</button>
+        </form>
+
     </main>
 </body>
 </html>

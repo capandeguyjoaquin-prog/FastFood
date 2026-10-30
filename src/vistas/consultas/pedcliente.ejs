@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos por cliente</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header class="encabezado-principal">
+        <a class="volver-inicio" href="/consultas">Volver a consultas</a>
+        <div class="marca">
+            <div class="texto-marca">
+                <h1>PEDIDOS DE UN CLIENTE</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <% if (error) { %>
+            <p class="mensaje-error"><%= error %></p>
+        <% } %>
+
+         <nav class="menu-principal" aria-label="Consultas">
+            <a class="opcion-menu" href="/consultas/listprod">
+                <img class="imagen-opcion" src="/img/productos.jpg" alt="">
+                <span>Listar productos por precio</span>
+            </a>
+            <a class="opcion-menu" href="/consultas/pedcliente">
+                <img class="imagen-opcion" src="/img/cliente.jpg" alt="">
+                <span>Pedidos de un cliente</span>
+            </a>
+            <a class="opcion-menu" href="/consultas/totaldia">
+                <img class="imagen-opcion" src="/img/pedido.png" alt="">
+                <span>Total recaudado en el día</span>
+            </a>
+        </nav>
+
+        <form class="formulario-datos" action="/consultas/pedcliente" method="post">
+            <label for="clienteId">ID del cliente:</label>
+            <input
+                id="clienteId"
+                type="number"
+                name="clienteId"
+            >
+            <button type="submit">Buscar pedidos</button>
+        </form>
+
+        <% if (busquedaRealizada) { %>
+            <% if (pedidos.length > 0) { %>
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>ID pedido</th>
+                            <th>Fecha y hora</th>
+                            <th>Tipo de servicio</th>
+                            <th>Estado actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% pedidos.forEach(pedido => { %>
+                            <tr>
+                                <td><%= pedido.idPedido %></td>
+                                <td>
+                                    <%= pedido.fecha_pedidosPe
+                                        ? new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR')
+                                        : '' %>
+                                </td>
+                                <td><%= pedido.tipo_servicioPe %></td>
+                                <td><%= pedido.estadoPe %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>Ese cliente no tiene pedidos registrados.</p>
+            <% } %>
+        <% } %>
+    </main>
+</body>
+</html>

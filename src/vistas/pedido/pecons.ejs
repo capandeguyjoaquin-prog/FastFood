@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar cliente</title>
+    <title>Consultar pedido y detalles</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <header class="encabezado-principal">
-    <a class="volver-inicio" href="/">Volver al inicio</a>
-    <div class="marca">
-        <div class="texto-marca">
-            <h1>CONSULTAR PEDIDO</h1>
+        <a class="volver-inicio" href="/">Volver al inicio</a>
+        <div class="marca">
+            <div class="texto-marca">
+                <h1>CONSULTAR PEDIDO Y DETALLES</h1>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <main class="contenedor-principal">
+    
 
     
+
     <nav class="menu-principal" aria-label="Apartados de pedidos">
     <a class="opcion-menu" href="/pedido/Alta">
         <img class="imagen-opcion" src="/img/pedido.png" alt="">
@@ -42,21 +44,53 @@
     </a>
 </nav>
 
-    <form class="formulario-datos" action="/pedido/Cons" method="post" >
-        <p>Id</p>
-        <input type="text" name="idhtml" placeholder="id">
-         <input type="submit" name="AGREGAR" >
-    </form>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
 
-    <% if (pedido) { %>
-        <h3>Resultado:</h3>
-        <p>ID: <%= pedido.idPedido %></p>
-        <p>Fecha y hora: <%= new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></p>
-        <p>Tipo de servicio: <%= pedido.tipo_servicioPe %></p>
-        <p>Estado del pedido: <%= pedido.estadoPe %></p>
-        <p>ID cliente: <%= pedido.Cliente_idCliente %></p>
-        <p>ID empleado: <%= pedido.Empleados_idEmpleado %></p>
-    <% } %>
+        <form class="formulario-datos" action="/pedido/Cons" method="post">
+            <label for="pedidoId">ID del pedido</label>
+            <input id="pedidoId" type="number" name="idhtml" required>
+            <button type="submit">Consultar</button>
+        </form>
+
+        <% if (pedido) { %>
+            <h2>Datos del pedido</h2>
+            <p>ID: <%= pedido.idPedido %></p>
+            <p>Fecha y hora: <%= new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></p>
+            <p>Tipo de servicio: <%= pedido.tipo_servicioPe %></p>
+            <p>Estado: <%= pedido.estadoPe %></p>
+            <p>Cliente: <%= pedido.nombreCliente %></p>
+            <p>Empleado: <%= pedido.nombreEmpleado %></p>
+
+            <h2>Detalles del pedido</h2>
+            <% if (detalles.length > 0) { %>
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>ID detalle</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Producto</th>
+                            <th>ID pedido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% detalles.forEach(detalle => { %>
+                            <tr>
+                                <td><%= detalle.idDetalle %></td>
+                                <td><%= detalle.cantidadDeta %></td>
+                                <td><%= detalle.subtotalDeta %></td>
+                                <td><%= detalle.nombreProducto %></td>
+                                <td><%= detalle.Pedidos_idPedido %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>Este pedido no tiene detalles.</p>
+            <% } %>
+        <% } %>
     </main>
 </body>
 </html>

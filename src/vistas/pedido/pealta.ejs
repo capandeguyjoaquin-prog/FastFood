@@ -44,6 +44,10 @@
     </a>
 </nav>
 
+    <% if (typeof error !== 'undefined') { %>
+    <p><%= error %></p>
+    <% } %>
+    <% if (!mostrarDetalle) { %>
     <form class="formulario-datos" action="/pedido/Alta" method="post">
         <p>Id</p>
         <input type="number" name="idhtml" placeholder="id">
@@ -65,6 +69,29 @@
 
         <input type="submit" value="AGREGAR">
     </form>
+    <% } %>
+    <% if (mostrarDetalle && pedidoId) { %>
+    <section>
+        <h2>Agregar detalle al pedido <%= pedidoId %></h2>
+
+        <form class="formulario-datos" action="/pedido/Alta/Detalle" method="post">
+            <label for="idDetalle">Id del detalle</label>
+            <input id="idDetalle" type="number" name="idhtml" required>
+
+            <label for="cantidadDetalle">Cantidad</label>
+            <input id="cantidadDetalle" type="number" name="cantidadhtml"
+                   min="1" step="1" required>
+
+            <label for="productoDetalle">Id del producto</label>
+            <input id="productoDetalle" type="number" name="idproductohtml" required>
+
+            <input type="hidden" name="idpedidohtml" value="<%= pedidoId %>">
+            <input type="hidden" name="origen" value="pedido">
+
+            <input type="submit" value="AGREGAR DETALLE">
+        </form>
+    </section>
+<% } %>
     </main>
 </body>
 </html>

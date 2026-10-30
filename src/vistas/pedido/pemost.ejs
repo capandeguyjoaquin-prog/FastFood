@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar pedidos</title>
+    <title>Mostrar pedidos y detalles</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
     <header class="encabezado-principal">
-    <a class="volver-inicio" href="/">Volver al inicio</a>
-    <div class="marca">
-        <div class="texto-marca">
-            <h1>MOSTRAR TODOS LOS PEDIDOS</h1>
+        <a class="volver-inicio" href="/">Volver al inicio</a>
+        <div class="marca">
+            <div class="texto-marca">
+                <h1>PEDIDOS Y DETALLES</h1>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <main class="contenedor-principal">
-        <nav class="menu-principal" aria-label="Apartados de pedidos">
+    
+
+    
+
+    <nav class="menu-principal" aria-label="Apartados de pedidos">
     <a class="opcion-menu" href="/pedido/Alta">
         <img class="imagen-opcion" src="/img/pedido.png" alt="">
         <span>Dar de alta</span>
@@ -40,49 +44,71 @@
     </a>
 </nav>
 
-    
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
 
-    <table class="tabla-datos">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Fecha y hora</th>
-                <th>Tipo de servicio</th>
-                <th>Estado del pedido</th>
-                <th>ID cliente</th>
-                <th>ID empleado</th>
-            </tr>
-        </thead>
-         <tbody>
-  
+        <h2>Pedidos</h2>
 
+        <% if (pedidos.length > 0) { %>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>ID pedido</th>
+                        <th>Fecha y hora</th>
+                        <th>Tipo de servicio</th>
+                        <th>Estado</th>
+                        <th>Cliente</th>
+                        <th>Empleado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% pedidos.forEach(pedido => { %>
+                        <tr>
+                            <td><%= pedido.idPedido %></td>
+                            <td><%= pedido.fecha_pedidosPe
+                                ? new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR')
+                                : '' %></td>
+                            <td><%= pedido.tipo_servicioPe %></td>
+                            <td><%= pedido.estadoPe %></td>
+                            <td><%= pedido.nombreCliente || 'Sin cliente' %></td>
+                            <td><%= pedido.nombreEmpleado || 'Sin empleado' %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No hay pedidos.</p>
+        <% } %>
 
-     <% if(registros.length > 0){
-        registros.forEach(pedido=>{%>
-            
-            <tr>
+        <h2>Detalles</h2>
 
-            <td><%= pedido.idPedido %></td>
-
-            <td><%=new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></td>
-
-            <td><%=pedido.tipo_servicioPe %></td>
-
-            <td><%=pedido.estadoPe %></td>
-
-            <td><%=pedido.Cliente_idCliente %></td>   
-
-            <td><%=pedido.Empleados_idEmpleado %></td>
-             
-            </tr>
-            
-       <% })
-     }else{%>
-        <p>no hay pedidos</p>
-    <% } %> 
-    </tbody>
-
-    </table>
+        <% if (detalles.length > 0) { %>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>ID detalle</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Producto</th>
+                        <th>ID pedido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% detalles.forEach(detalle => { %>
+                        <tr>
+                            <td><%= detalle.idDetalle %></td>
+                            <td><%= detalle.cantidadDeta %></td>
+                            <td><%= detalle.subtotalDeta %></td>
+                            <td><%= detalle.nombreProducto || 'Sin producto' %></td>
+                            <td><%= detalle.Pedidos_idPedido %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No hay detalles.</p>
+        <% } %>
     </main>
 </body>
 </html>
