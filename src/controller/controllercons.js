@@ -78,15 +78,13 @@ export const listarPedidosCliente = async (req, resp) => {
 };
 
 export const mostrarTotaldia = async (req, resp) => {
-    let TotalDiaSQL = `SELECT
-            CURDATE() AS fecha,
-            COUNT(DISTINCT pe.idPedido) AS cantidadPedidos,
-            COALESCE(SUM(d.subtotalDeta), 0) AS totalRecaudado
-        FROM Pedidos pe
-        LEFT JOIN Detalle_Pedido d
-            ON d.Pedidos_idPedido = pe.idPedido
-        WHERE pe.fecha_pedidosPe >= CURDATE()
-          AND pe.fecha_pedidosPe < CURDATE() + INTERVAL 1 DAY`;
+    let TotalDiaSQL = ` SELECT CURDATE() AS fecha,
+    COUNT(DISTINCT pedidos.idPedido) AS cantidadPedidos,
+    COALESCE(SUM(detalles.subtotalDeta), 0) AS totalRecaudado FROM Pedidos AS pedidos
+    LEFT JOIN Detalle_Pedido AS detalles 
+    ON detalles.Pedidos_idPedido = pedidos.idPedido
+    WHERE pedidos.fecha_pedidosPe >= CURDATE() 
+    AND pedidos.fecha_pedidosPe < CURDATE() + INTERVAL 1 DAY `;
 
     try {
         const [registros] = await con.query(TotalDiaSQL);

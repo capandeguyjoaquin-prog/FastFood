@@ -56,12 +56,28 @@
 
         <% if (pedido) { %>
             <h2>Datos del pedido</h2>
-            <p>ID: <%= pedido.idPedido %></p>
-            <p>Fecha y hora: <%= new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></p>
-            <p>Tipo de servicio: <%= pedido.tipo_servicioPe %></p>
-            <p>Estado: <%= pedido.estadoPe %></p>
-            <p>Cliente: <%= pedido.nombreCliente %></p>
-            <p>Empleado: <%= pedido.nombreEmpleado %></p>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Fecha y hora</th>
+                        <th>Tipo de servicio</th>
+                        <th>Estado</th>
+                        <th>Cliente</th>
+                        <th>Empleado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= pedido.idPedido %></td>
+                        <td><%= new Date(pedido.fecha_pedidosPe).toLocaleString('es-AR') %></td>
+                        <td><%= pedido.tipo_servicioPe %></td>
+                        <td><%= pedido.estadoPe %></td>
+                        <td><%= pedido.nombreCliente %></td>
+                        <td><%= pedido.nombreEmpleado %></td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h2>Detalles del pedido</h2>
             <% if (detalles.length > 0) { %>
